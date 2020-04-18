@@ -1,0 +1,82 @@
+{
+  "assets-sort-type": "name",
+  "collision-matrix": [
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      false
+    ]
+  ],
+  "design-resolution-height": 720,
+  "design-resolution-width": 1280,
+  "excluded-modules": [
+    "Canvas Renderer",
+    "DragonBones",
+    "EditBox",
+    "Geom Utils",
+    "Layout",
+    "MotionStreak",
+    "NodePool",
+    "Native Socket",
+    "PageView",
+    "PageViewIndicator",
+    "RichText",
+    "Slider",
+    "ScrollBar",
+    "ScrollView",
+    "Spine Skeleton",
+    "StudioComponent",
+    "Toggle",
+    "TiledMap",
+    "VideoPlayer",
+    "WebView",
+    "3D",
+    "3D Primitive"
+  ],
+  "facebook": {
+    "appID": "",
+    "audience": {
+      "enable": false
+    },
+    "enable": false,
+    "live": {
+      "enable": false
+    }
+  },
+  "fit-height": false,
+  "fit-width": true,
+  "group-list": [
+    "Default",
+    "UI",
+    "Background",
+    "Player"
+  ],
+  "last-module-event-record-time": 1584568558197,
+  "simulator-orientation": false,
+  "simulator-resolution": {
+    "height": 640,
+    "width": 960
+  },
+  "use-customize-simulator": true,
+  "use-project-simulator-setting": false,
+  "start-scene": "750b41b8-3d6e-462d-a9cd-2c0de472d9d3"
+}
