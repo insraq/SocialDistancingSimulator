@@ -29,28 +29,7 @@
   "design-resolution-height": 720,
   "design-resolution-width": 1280,
   "excluded-modules": [
-    "Canvas Renderer",
-    "DragonBones",
-    "EditBox",
-    "Geom Utils",
-    "Layout",
-    "MotionStreak",
-    "NodePool",
-    "Native Socket",
-    "PageView",
-    "PageViewIndicator",
-    "RichText",
-    "Slider",
-    "ScrollBar",
-    "ScrollView",
-    "Spine Skeleton",
-    "StudioComponent",
-    "Toggle",
-    "TiledMap",
-    "VideoPlayer",
-    "WebView",
-    "3D",
-    "3D Primitive"
+    "Canvas Renderer"
   ],
   "facebook": {
     "appID": "",
@@ -70,7 +49,7 @@
     "Background",
     "Player"
   ],
-  "last-module-event-record-time": 1584568558197,
+  "last-module-event-record-time": 1587326496793,
   "simulator-orientation": false,
   "simulator-resolution": {
     "height": 640,

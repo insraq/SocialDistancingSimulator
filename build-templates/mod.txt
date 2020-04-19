@@ -1,0 +1,46 @@
+This game can be modded by tweaking the game parameters. To override an parameter, add it to URL. For example:
+
+fishpondstudio.com/ld46?familyCount=25&incubationDay=5
+
+will override `familyCount` to 25 and `incubationDay` to 5. You can share this URL so that other people will play your modded version.
+
+Here's a list of parameters and the default value:
+
+familyCount: 50
+// Total number of families in the game
+
+familySize: 6
+// On average the number of people within each family
+
+workplaceCount: 6
+// Total number of work places are in the game
+
+socialPlaceCount: 7
+// Total number of social places are in the game
+
+socialPlaceCapacity: 0.5
+// Total capacity of social places w.r.t population. e.g. If population = 100 and socialPlaceCapacity = 0.5, then 0.5 * 100 (= 50) is the capacity of social places
+
+hospitalCapacity: 0.05
+// Total capacity of hospital w.r.t population. e.g. If population = 100 and hospitalCapacity = 0.05, then 0.05 * 100 (= 5) is the capacity of hospital
+
+initialInfected: 1
+// Initial number of infected people
+
+incubationDay: 3
+// On average the incubation period
+
+asymptomaticPencentage: 0.5
+// The percentage of asymptomatic patients
+
+seriousPencentage: 0.15
+// The percentage of serious patients. 1 - asymptomaticPencentage - seriousPencentage = mildPercentage.
+
+infectedChance: 0.1
+// The chance of infection on each contact
+
+recoverDaysNeeded: 5
+// On average the number of days needed for recovery
+
+seriousRecoverDaysMultiplier: 2
+// On average the number of days needed for serious infection recovery w.r.t `recoverDaysNeeded`. 2 means it needs twice the time (i.e. 10 days)
