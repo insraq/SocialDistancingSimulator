@@ -1,5 +1,6 @@
 declare namespace cc {
-    interface Node {    // tslint:disable-line
+    interface Node {
+        // tslint:disable-line
         angleTo(worldPoint: cc.Vec2): number;
         getWorldPosition(): cc.Vec2;
         relativeFrom(node: cc.Node): cc.Vec2;
@@ -7,10 +8,12 @@ declare namespace cc {
         follow(node: cc.Node): void;
         getAttr<T>(key: string): T;
     }
-    interface Graphics { // tslint:disable-line
+    interface Graphics {
+        // tslint:disable-line
         dashedLine(startPos: cc.Vec2, endPos: cc.Vec2, lineLength?: number, spaceLength?: number): void;
     }
-    interface Vec2 { //tslint:disable-line
+    interface Vec2 {
+        //tslint:disable-line
         clampDistance(min: number, max: number): Vec2;
     }
     export function normalizeAngle(angle: number): number;
@@ -25,13 +28,16 @@ declare namespace cc {
     export function vibrate(pattern: number | number[]): boolean;
 }
 
-interface Array<T> { // tslint:disable-line
+interface Array<T> {
+    // tslint:disable-line
     randOne(): T;
     shuffle(): T[];
+    sample(percentage: number, callback: (item: T, index: number, array: T[]) => void): void;
     uniq(): T[];
 }
 
-interface Number { // tslint:disable-line
+interface Number {
+    // tslint:disable-line
     round(decimal): number;
 }
 
@@ -50,6 +56,19 @@ Array.prototype.shuffle = function shuffle<T>(this: T[]): T[] {
         [this[i], this[j]] = [this[j], this[i]];
     }
     return this;
+};
+
+Array.prototype.sample = function sample<T>(
+    this: T[],
+    percentage: number,
+    callback: (item: T, index: number, array: T[]) => void
+) {
+    this.shuffle();
+    const count = Math.round(this.length * percentage);
+    for (let i = 0; i < count; i++) {
+        const c = this[i];
+        callback(c, i, this);
+    }
 };
 
 Array.prototype.uniq = function shuffle<T>(this: T[]): T[] {
@@ -81,7 +100,7 @@ cc.Node.prototype.follow = function (this: cc.Node, target: cc.Node) {
 cc.Node.prototype.angleTo = function (this: cc.Node, worldPoint: cc.Vec2): number {
     const target = worldPoint.sub(this.getWorldPosition());
     const angel = Math.atan2(target.x, target.y);
-    return -angel * 180 / Math.PI;
+    return (-angel * 180) / Math.PI;
 };
 
 cc.Node.prototype.getAttr = function <T>(this: cc.Node, key) {
@@ -172,7 +191,8 @@ if (cc.Graphics) {
         startPos,
         endPos,
         lineLength = 10,
-        spaceLength = 20) {
+        spaceLength = 20
+    ) {
         let cursor = startPos;
         let count = 0;
         const direction = endPos.sub(startPos);
@@ -184,7 +204,6 @@ if (cc.Graphics) {
             if (count % 2 === 0) {
                 this.moveTo(cursor.x, cursor.y);
                 cursor = cursor.add(increment.mul(lineLength));
-
             } else {
                 this.lineTo(cursor.x, cursor.y);
                 cursor = cursor.add(increment.mul(spaceLength));

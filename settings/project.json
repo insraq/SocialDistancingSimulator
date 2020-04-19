@@ -62,7 +62,7 @@
       "enable": false
     }
   },
-  "fit-height": false,
+  "fit-height": true,
   "fit-width": true,
   "group-list": [
     "Default",
@@ -77,6 +77,5 @@
     "width": 960
   },
   "use-customize-simulator": true,
-  "use-project-simulator-setting": false,
-  "start-scene": "750b41b8-3d6e-462d-a9cd-2c0de472d9d3"
+  "use-project-simulator-setting": false
 }

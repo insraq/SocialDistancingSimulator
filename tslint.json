@@ -1,7 +1,7 @@
 {
     "defaultSeverity": "error",
     "extends": [
-        "tslint:recommended"
+        "tslint:latest"
     ],
     "jsRules": {},
     "rules": {
@@ -17,7 +17,12 @@
             true,
             "allow-declarations"
         ],
-        "space-before-function-paren": false
+        "semicolon": [
+            true,
+            "always"
+        ],
+        "space-before-function-paren": false,
+        "max-classes-per-file": false
     },
     "rulesDirectory": []
 }
