@@ -4354,10 +4354,12 @@ export const COMPANY_NAME_POSTFIX = ["LLC", "Oy", "Inc", "Ab", "Ltd", "& Partner
 
 export const SOCIAL_NAME_POSTFIX = [
     "Park",
-    "Restaurant",
+    "Food",
     "Pizzaria",
+    "Square",
+    "Mall",
     "Cafe",
-    "Bar & Grill",
+    "Grill",
     "Bar",
     "Snacks",
     "Mart",

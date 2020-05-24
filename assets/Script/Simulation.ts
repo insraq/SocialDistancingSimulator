@@ -49,6 +49,8 @@ export default class Simulation extends cc.Component {
 
     protected onLoad() {
         G.sim = this;
+        cc.game.canvas.onkeydown = document.onkeydown;
+        cc.debug.setDisplayStats(false);
         this.setup();
     }
 
@@ -56,7 +58,7 @@ export default class Simulation extends cc.Component {
         this.world = new World();
 
         const node = cc.instantiate(this.placePrefab);
-        node.getComponentInChildren(cc.Label).string = "🏥 Hospital";
+        node.getComponentInChildren(cc.Label).string = "🏥Hospital";
         node.parent = this.places;
         this.world.hospital = new SocialPlace("Hospital", node);
 
@@ -129,8 +131,8 @@ export default class Simulation extends cc.Component {
 }
 
 export function randPos<T extends IXY>(pos: T) {
-    pos.x += cc.randf(-60, 60);
-    pos.y += cc.randf(-40, 60);
+    pos.x += cc.randf(-30, 30);
+    pos.y += cc.randf(-20, 30);
     return pos;
 }
 

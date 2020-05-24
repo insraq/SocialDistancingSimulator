@@ -43,8 +43,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 150,
-      "height": 150
+      "width": 75,
+      "height": 75
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -108,7 +108,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 130,
-      "height": 25
+      "height": 30
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -120,14 +120,14 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -55,
+        -28,
         0,
         0,
         0,
         0,
         1,
-        1,
-        1,
+        0.5,
+        0.5,
         1
       ]
     },
@@ -158,10 +158,10 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "Coffee Shop",
-    "_N$string": "Coffee Shop",
-    "_fontSize": 15,
-    "_lineHeight": 25,
+    "_string": "Google",
+    "_N$string": "Google",
+    "_fontSize": 20,
+    "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "164c8f7b-0799-4c0e-b3c2-fba2a97a8d48"
@@ -173,7 +173,7 @@
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
     "_N$overflow": 2,
-    "_N$cacheMode": 0,
+    "_N$cacheMode": 1,
     "_id": ""
   },
   {
@@ -206,7 +206,7 @@
       "__uuid__": "6b8b770d-dc2a-44c4-9eda-c8c4280e3477"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",

@@ -13,7 +13,7 @@ body {
 }
 
 .top {
-    height: 50px;
+    height: 40px;
     position: absolute;
     width: 100%;
     background: linear-gradient(180deg, #6c5ce7 0%, #5747d3 100%);
@@ -21,7 +21,23 @@ body {
     color: #fff;
     display: flex;
     flex-direction: row;
-    font-size: 20px;
+    font-size: 16px;
+}
+
+.top .stat {
+    width: 100px;
+    text-align: center;
+}
+
+.top .stat > div:first-child {
+    text-transform: uppercase;
+    line-height: 10px;
+    font-size: 10px;
+}
+
+.top .stat > div:last-child {
+    line-height: 20px;
+    font-size: 18px;
 }
 
 .top > div {
@@ -41,23 +57,77 @@ body {
     justify-content: flex-end;
 }
 
-.bottom {
-    height: 25%;
+.bottom-bar {
     position: absolute;
-    bottom: 0;
-    width: 100%;
-    background: #636e72ef;
-    color: #fff;
+    bottom: 20px;
+    height: 60px;
+    left: 50%;
+    width: 400px;
+    margin-left: -200px;
     display: flex;
-    flex-direction: row;
-    font-size: 14px;
+    justify-content: space-between;
 }
 
-.bottom > div {
-    flex: 1;
+.bottom-bar > div {
+    color: #333;
+    text-transform: uppercase;
+    text-align: center;
+    background: #fff;
+    width: 60px;
+    height: 60px;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+    font-family: FontBold_LABEL;
+    font-size: 11px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+.bottom-bar img {
+    display: block;
+    width: 32px;
+}
+
+.inactive {
+    opacity: 0.25;
+}
+
+.chart-hud {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 400px;
+    height: 300px;
+}
+
+.event-log {
+    padding: 0 10px;
+    border-radius: 5px;
+    background: #6c5ce7;
+    height: 50px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 330px;
+    right: 20px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+.event-log > .panel {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+}
+
+.log-item {
     padding: 10px;
+    border-bottom: 1px dotted rgb(55, 55, 55);
 }
 
 .btn {
@@ -77,10 +147,7 @@ h2 {
     margin: 0;
     font-size: 16px;
     line-height: 20px;
-}
-
-.log-item {
-    padding: 5px 0;
+    font-weight: normal;
 }
 
 .row {
@@ -96,12 +163,21 @@ h2 {
     cursor: pointer;
 }
 
-.pointer {
+.top-icon {
     cursor: pointer;
+    width: 50px;
+    text-align: center;
 }
 
-.sep {
-    padding-top: 10px;
+.inspector {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
+
+.inspector > .panel {
+    width: 300px;
+    height: 500px;
 }
 
 .toast {
@@ -113,7 +189,6 @@ h2 {
     color: #333;
     background: rgba(255, 255, 255, 0.8);
     padding: 15px;
-    word-break: break-all;
     animation: fadein 0.5s;
 }
 
@@ -127,6 +202,157 @@ h2 {
     }
 }
 
+/* Panel */
+
+.panel {
+    border-radius: 5px;
+    background: rgb(40, 40, 40);
+    color: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+}
+
+.panel > .header {
+    font-family: FontBold_LABEL;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+    background: rgb(35, 35, 35);
+}
+
+.panel .scrollable {
+    height: calc(100% - 30px);
+    overflow-y: auto;
+}
+
+.panel .row {
+    display: flex;
+    padding: 5px 10px;
+    font-size: 13px;
+}
+
+.panel .row > div:first-child {
+    text-transform: uppercase;
+}
+
+.panel .row > div:last-child {
+    flex: 1;
+    text-align: right;
+}
+
+.panel .close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+/* Modal */
+
+.modal {
+    position: absolute;
+    width: 800px;
+    height: 600px;
+    left: 50%;
+    top: 50%;
+    margin: -300px 0 0 -400px;
+}
+
+.modal .panel {
+    width: 800px;
+    height: 600px;
+}
+
+.close .mi {
+    font-size: 18px !important;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 6px;
+    background-color: #333;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    background-color: #333;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: #666;
+}
+
+/* Icon */
+
+.mi {
+    font-family: MaterialIcons_LABEL;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px; /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: "liga";
+}
+
+/* Utility classes */
+
 .green {
     color: #00cec9;
+}
+
+.gray {
+    color: #999;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.sep {
+    padding-top: 10px;
+}
+
+.f1 {
+    flex: 1;
+}
+
+.fcc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tr {
+    text-align: right;
+}
+
+.mr10 {
+    margin-right: 10px;
+}
+
+.mr5 {
+    margin-right: 5px;
+}
+
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

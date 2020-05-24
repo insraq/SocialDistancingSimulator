@@ -7,8 +7,13 @@ let uiStarted = false;
 
 @ccclass
 export default class ResourceLoader extends cc.Component {
-
     @property({ type: [cc.Asset] }) private styles: cc.Asset[] = [];
+
+    @property({ type: cc.Asset }) public readonly policyImg: cc.Asset = null;
+    @property({ type: cc.Asset }) public readonly inspectImg: cc.Asset = null;
+    @property({ type: cc.Asset }) public readonly labImg: cc.Asset = null;
+    @property({ type: cc.Asset }) public readonly statImg: cc.Asset = null;
+    @property({ type: cc.Asset }) public readonly hospitalImg: cc.Asset = null;
 
     protected onLoad() {
         cc.game.addPersistRootNode(this.node);
@@ -28,5 +33,4 @@ export default class ResourceLoader extends cc.Component {
             uiStarted = true;
         }
     }
-
 }

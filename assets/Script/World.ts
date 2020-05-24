@@ -14,6 +14,10 @@ export class World {
     public actionPoint: number = 1;
     public isPaused = false;
     public gameOver = false;
+    public infectedData: number[] = [];
+    public recoveredData: number[] = [];
+    public inHospitalData: number[] = [];
+    public timeData: string[] = [];
     // Policies
     public hospitalizeMild = false;
     public homeQuarantineMild = false;
@@ -86,12 +90,19 @@ export class World {
             return;
         }
         const oldDay = this.day;
+        const oldTurn = this.turn;
         this._tick++;
         const newDay = this.day;
+        const newTurn = this.turn;
         if (newDay > oldDay) {
             this.actionPoint++;
         }
-
+        if (this._tick === 1 || newTurn > oldTurn) {
+            this.infectedData.push(this.infected);
+            this.inHospitalData.push(this.inHospital);
+            this.recoveredData.push(this.recovered);
+            this.timeData.push(this._tick === 1 || newDay > oldDay ? `D${newDay}` : "");
+        }
         this.people.forEach((p) => {
             p.tick(this);
         });
@@ -128,11 +139,11 @@ export class World {
         const stage = this.turn % 3;
         switch (stage) {
             case 0:
-                return "Night → Morning";
+                return "1:00 am";
             case 1:
-                return "Morning → Afternoon";
+                return "9:00 am";
             case 2:
-                return "Afternoon → Evening";
+                return "5:00 pm";
         }
     }
     public get day() {
@@ -143,6 +154,9 @@ export class World {
     }
     public get infected() {
         return this.people.filter((p) => p.infectedType !== "healthy" && p.infectedType !== "recovered").length;
+    }
+    public get recovered() {
+        return this.people.filter((p) => p.infectedType === "recovered").length;
     }
 }
 
@@ -232,7 +246,7 @@ export const COLOR_CODE = {
     incubated: "#dddddd",
     asymptomatic: "#bbbbbb",
     mild: "#ffeaa7",
-    serious: "#d63031",
+    serious: "#ff7675",
     recovered: "#55efc4",
 };
 
